@@ -1,0 +1,9 @@
+@tailwind components;
+@tailwind base;
+@tailwind utilities;
+
+@layer base{
+  html {
+    font-family: 'Kanit', sans-serif;
+  }
+}
