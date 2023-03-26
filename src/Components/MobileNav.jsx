@@ -17,7 +17,7 @@ const MobileNav = () => {
       </div>
 
       {/* Nav items */}
-      <div className={`w-screen h-[50%] fixed left-0 bg-amber-900 text-2xl text-center text-yellow-200 transition-all duration-300 ease-in-out z-40 pt-20 ${open? 'top-0': 'top-[-400px]'}`}>
+      <div className={`w-screen h-64 fixed left-0 bg-amber-900 text-2xl text-center text-yellow-200 transition-all duration-300 ease-in-out z-40 pt-20 ${open? 'top-0': 'top-[-400px]'}`}>
         <h1 className=' my-4'>Home</h1>
         <h1 className=' my-4'>About</h1>
       </div>
