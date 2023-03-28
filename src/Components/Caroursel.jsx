@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useRef, useEffect} from 'react'
 import { IonIcon } from '@ionic/react'
 import { arrowBackCircleSharp } from 'ionicons/icons'
 import { arrowForwardCircleSharp } from 'ionicons/icons'
@@ -6,7 +6,8 @@ import CarouselData from '../Data/CarouselData'
 
 const Caroursel = () => {
 
-  const [index, setIndex] = useState(1)
+  const [index, setIndex] = useState(0)
+  const intervalRef = useRef(null);
 
   const backClick = () => {
     if (index === 0) {
@@ -24,9 +25,17 @@ const Caroursel = () => {
     }
   }
 
-  // setInterval(()=> {
-  //   forwardClick()
-  // }, 5000)
+
+  useEffect(() => {
+    // This creates a reference to the index state and changes its value
+    intervalRef.current = setInterval(() => {
+      setIndex(prevIndex => (prevIndex === 1 ? 0 : 1));
+    }, 5000);
+
+    return () => {
+      clearInterval(intervalRef.current);
+    };
+  }, []);
 
   return (
     <>
@@ -40,13 +49,15 @@ const Caroursel = () => {
           </div>
         </div>
 
+        {/* translate-x-[-${index}00vw] */}
+
       {/* Carousel Body */}
       <div className={`flex translate-x-[-${index}00vw] relative transition-all duration-300 ease-in-out`}>
         {
           CarouselData.map((item, i) => (
             <div className='w-screen h-96 shrink-0 relative' key={i}>
               <img src={item.image} alt={item.text} className=' object-cover h-full w-full'/>
-              <h1 className='absolute top-[4em] md:left-[12em] left-[3em] font-bold text-5xl mx-auto text-neutral-50'>{item.text}</h1>
+              <h1 className='absolute md:top-[4em] top-32 md:left-[25%] left-[10%] font-bold text-5xl mx-auto text-yellow-200'>{item.text}</h1>
             </div>
           ))
         }

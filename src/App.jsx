@@ -1,7 +1,8 @@
 import { useState } from 'react'
 import './App.css'
-import MobileNav from './Components/MobileNav'
-import Navbar from './Components/Navbar'
+import Footer from './Components/Footer'
+import MobileNav from './Components/Navbar/MobileNav'
+import Navbar from './Components/Navbar/Navbar'
 import Home from './Pages/Home'
 
 function App() {
@@ -11,6 +12,7 @@ function App() {
       <Navbar/>
       <MobileNav/>
       <Home/>
+      <Footer/>
     </div>
   )
 }
