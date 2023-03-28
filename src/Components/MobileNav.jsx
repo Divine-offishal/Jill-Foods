@@ -5,11 +5,17 @@ import { closeSharp } from 'ionicons/icons'
 
 const MobileNav = () => {
 
+  const windowHeight = window.innerHeight
+
   const [open, setOpen] = useState(false)
+
+  const handleClick = () => {
+    console.log(windowHeight);
+  }
 
   return (
     <>
-      <div className=' bg-amber-900 h-20 w-screen flex md:hidden text-yellow-200 pt-4 fixed top-0 left-0 z-50'>
+      <div onClick={handleClick} className={`  h-20 w-screen flex md:hidden text-yellow-200 pt-4 fixed top-0 left-0 z-50 ${windowHeight? 'bg-amber-900': ' bg-amber-900/0' }`}>
         <h1 className='text-4xl ml-4 font-bold'>Jill's Kitchen</h1>
         <div className='text-4xl ml-auto mr-4' onClick={()=> setOpen(!open)}>
           {open ? <IonIcon icon={closeSharp}/> : <IonIcon icon={reorderThreeSharp}/>}

@@ -6,7 +6,7 @@ import CarouselData from '../Data/CarouselData'
 
 const Caroursel = () => {
 
-  const [index, setIndex] = useState(0)
+  const [index, setIndex] = useState(1)
 
   const backClick = () => {
     if (index === 0) {
@@ -35,7 +35,7 @@ const Caroursel = () => {
           <div className='absolute  ' onClick={backClick}>
             <IonIcon icon={arrowBackCircleSharp} />
           </div>
-          <div className='absolute lg:ml-[44em] md:ml-[24em] ml-[19rem]' onClick={forwardClick}>
+          <div className='absolute lg:ml-[44em] md:ml-[24em] ml-[19rem] md:right-10 right-2' onClick={forwardClick}>
             <IonIcon icon={arrowForwardCircleSharp} />
           </div>
         </div>

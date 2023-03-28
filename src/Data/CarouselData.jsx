@@ -3,7 +3,7 @@ import Images from "../Images/images"
 const CarouselData = [
   {
     image: Images.image1,
-    text: 'Image 1 text'
+    text: 'This is the first slide'
   },
   {
     image: Images.image2,
