@@ -4,7 +4,7 @@ import { col1, col2, contact } from '../Data/FooterData'
 
 const Footer = () => {
   return (
-    <div className='w-screen h-auto bg-amber-900 text-yellow-200 flex md:flex-row flex-col justify-between px-10 pt-10'>
+    <div className='w-screen h-auto bg-amber-900 text-primary flex md:flex-row flex-col justify-between px-10 pt-10'>
       <h1 className='text-2xl font-bold'>Jill's Kitchen</h1>
 
       <div className='my-2'>

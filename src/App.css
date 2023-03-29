@@ -12,4 +12,8 @@
   .section-header {
     @apply text-4xl text-amber-900 text-center mt-32 mb-6 font-bold;
   }
+
+  .max-input {
+    @apply text-amber-900 h-10 md:w-7/12 w-9/12 border border-amber-900 bg-primary pl-4
+  }
 }

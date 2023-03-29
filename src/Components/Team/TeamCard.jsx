@@ -4,7 +4,7 @@ import { arrowForwardCircleSharp } from 'ionicons/icons'
 
 const TeamCard = ({name, image, title}) => {
   return (
-    <div className=' h-auto w-64 border border-amber-900 bg-yellow-200 text-amber-900 my-3 pb-2'>
+    <div className=' h-auto w-64 border border-amber-900 bg-primary text-amber-900 my-3 pb-2'>
       <div>
         <img src={image} />
       </div>

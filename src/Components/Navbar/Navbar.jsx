@@ -15,7 +15,7 @@ const Navbar = () => {
   }, []);
 
   return (
-    <div className={`w-screen  h-20 text-yellow-200 fixed z-50 top-0 hidden md:flex transition-all duration-300 ease-in-out pt-4 ${windowHeight> 0? 'bg-amber-900': 'bg-opacity-0'}`}>
+    <div className={`w-screen  h-20 text-primary fixed z-50 top-0 hidden md:flex transition-all duration-300 ease-in-out pt-4 ${windowHeight> 0? 'bg-amber-900': 'bg-opacity-0'}`}>
       <h1 className='font-bold text-4xl ml-4 '>Jill's kitchen</h1>
 
       <div className='ml-auto text-2xl flex mr-4'>
