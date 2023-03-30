@@ -5,6 +5,7 @@ import MobileNav from './Components/Navbar/MobileNav'
 import Navbar from './Components/Navbar/Navbar'
 import About from './Pages/About'
 import Home from './Pages/Home'
+import AppRoutes from './Routes/AppRoutes'
 
 function App() {
 
@@ -13,7 +14,7 @@ function App() {
       <Navbar/>
       <MobileNav/>
       {/* <Home/> */}
-      <About/>
+      <AppRoutes/>
       <Footer/>
     </div>
   )

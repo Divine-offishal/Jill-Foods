@@ -1,17 +1,24 @@
 import React from 'react'
 import Images from '../Images/images'
+import TeamsData from '../Data/TeamsData'
+import { useParams } from 'react-router-dom'
 
 const TeamPage = () => {
+
+  const {name} = useParams()
+
+  const searchArray = TeamsData.find(item => item.name == name)
+
   return (
     <div className=' w-screen grid justify-items-center '>
       <div className='w-9/12 h-auto p-4 bg-amber-900 my-20 grid justify-items-center'>
         <h1 className='section-header text-primary'>Profile</h1>
       
-          <img src={Images.image4} alt="" className="w-11/12 h-[20em] md:w-80 md:h-80" />
+          <img src={searchArray.image} alt="" className="w-11/12 h-[16em] md:w-80 md:h-80" />
         
         <div className='text-primary my-10 text-center'>
-          <h1 className='text-2xl my-4'>Name</h1>
-          <h1 className='my-4'>Position</h1>
+          <h1 className='text-2xl my-4'>{searchArray.name}</h1>
+          <h1 className='my-4'>{searchArray.title}</h1>
 
           <h1 className='text-xl mb-4'>Description</h1>
           <article>

@@ -3,22 +3,22 @@ import Images from "../Images/images"
 const TeamsData = [
   {
     name: 'Jill Sky',
-    title: 'Chief Chef(CC)',
+    title: 'Head Chef(HC)',
     image: Images.image3,
   },
   {
     name: 'Alex Stenski',
-    title: 'Assistant Chief Chef(ACC)',
+    title: 'Assistant Head Chef(AHC)',
     image: Images.image4,
   },
   {
     name: 'Lucy Freeman',
-    title: 'Chief Technician(CT)',
+    title: 'Waitress',
     image: Images.image5,
   },
   {
     name: 'James Lambert',
-    title: 'Janitor',
+    title: 'Host',
     image: Images.image6,
   },
 ]

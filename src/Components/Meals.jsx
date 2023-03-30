@@ -1,7 +1,13 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Card from './Card'
+import useSWR from 'swr'
 
 const Meals = () => {
+
+  const fetcher = (...args) => fetch(...args).then(res => res.json())
+  const { data, error, isLoading } = useSWR('https://themealdb.com/api/json/v1/1/categories.php', fetcher)
+
+
   return (
     <>
       <h1 className='section-header'>Our Meals</h1>
@@ -17,16 +23,10 @@ const Meals = () => {
         </select>
       </div>
       <div className='grid lg:grid-cols-4 md:grid-cols-3 items-center justify-items-center'>
-        <Card/>
-        <Card/>
-        <Card/>
-        <Card/>
-        <Card/>
-        <Card/>
-        <Card/>
-        <Card/>
-        <Card/>
-        <Card/>
+        {data?.categories.map(category => (
+          <Card image={category.strCategoryThumb} name={category.strCategory}/>
+        ))}
+        {error && <h1>{error}</h1>}
       </div>
     </>
   )
