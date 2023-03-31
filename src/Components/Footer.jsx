@@ -25,7 +25,7 @@ const Footer = () => {
 
       <div className='text-4xl flex my-2'>
           {contact.map((item, i) => (
-            <div className='mx-2'>
+            <div className='mx-2' key={i}>
               <IonIcon icon={item}/>
             </div>
           ))}

@@ -3,8 +3,8 @@ import CartCard from './CartCard'
 
 const Cart = () => {
   return (
-    <div className=' w-screen pt-10'>
-      <h1 className='text-amber-900 text-center text-4xl font-bold'>Cart</h1>
+    <div className=' w-screen min-h-screen pt-10'>
+      <h1 className='text-amber-900 text-center text-4xl font-bold'>Saved Items</h1>
 
       <div className='my-20'>
         <CartCard/>

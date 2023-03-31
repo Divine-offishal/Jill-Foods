@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import './App.css'
+import Skeleton, {SkeletonTheme} from 'react-loading-skeleton'
 import Footer from './Components/Footer'
 import MobileNav from './Components/Navbar/MobileNav'
 import Navbar from './Components/Navbar/Navbar'
@@ -14,7 +15,9 @@ function App() {
       <Navbar/>
       <MobileNav/>
       {/* <Home/> */}
-      <AppRoutes/>
+      <SkeletonTheme baseColor='#78350F' highlightColor='#a76731'>
+        <AppRoutes/>
+      </SkeletonTheme>
       <Footer/>
     </div>
   )

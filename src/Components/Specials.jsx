@@ -1,5 +1,6 @@
 import React from 'react'
 import Card from './Card'
+import SpecialData from '../Data/SpecialsData'
 
 const Specials = () => {
   return (
@@ -10,6 +11,12 @@ const Specials = () => {
         <Card/>
         <Card/>
         <Card/> */}
+
+        {
+          SpecialData.map((item, i) => (
+            <Card image={item.image} name={item.name} key={i}/>
+          ))
+        }
       </div>
     </div>
   )

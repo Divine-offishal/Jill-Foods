@@ -5,6 +5,10 @@ const Images = {
   image4 : new URL('./Team2.jpg', import.meta.url).href,
   image5 : new URL('./Team3.jpg', import.meta.url).href,
   image6 : new URL('./Team4.jpg', import.meta.url).href,
+  special1 : new URL('./Special1.jpg', import.meta.url).href,
+  special2 : new URL('./Special2.jpg', import.meta.url).href,
+  special3 : new URL('./Special3.jpg', import.meta.url).href,
+  special4 : new URL('./Special4.jpg', import.meta.url).href,
 }
 
 export default Images

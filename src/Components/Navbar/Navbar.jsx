@@ -1,5 +1,5 @@
 import { IonIcon } from '@ionic/react';
-import { cartSharp } from 'ionicons/icons';
+import { listSharp } from 'ionicons/icons';
 import React, {useEffect, useState} from 'react'
 import { NavLink } from 'react-router-dom';
 
@@ -32,7 +32,7 @@ const Navbar = () => {
         </NavLink>
         <NavLink to='/cart'>
           <div className='text-3xl mr-4'>
-            <IonIcon icon={cartSharp}/>
+            <IonIcon icon={listSharp}/>
           </div>
         </NavLink>
       </div>

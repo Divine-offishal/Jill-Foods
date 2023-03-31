@@ -1,6 +1,9 @@
 import React, { useEffect } from 'react'
 import Card from './Card'
 import useSWR from 'swr'
+import { NavLink } from 'react-router-dom'
+import LoadSkeleton from './LoadSkeleton'
+import toast, {Toaster} from 'react-hot-toast'
 
 const Meals = () => {
 
@@ -10,6 +13,9 @@ const Meals = () => {
 
   return (
     <>
+      <Toaster 
+        position='top-center'
+        duration='300'/>
       <h1 className='section-header'>Our Meals</h1>
       <div className='grid justify-items-center'>
         <div className="flex mx-auto">
@@ -22,11 +28,30 @@ const Meals = () => {
           <option>Chicken</option>
         </select>
       </div>
-      <div className='grid lg:grid-cols-4 md:grid-cols-3 items-center justify-items-center'>
-        {data?.categories.map(category => (
-          <Card image={category.strCategoryThumb} name={category.strCategory}/>
-        ))}
-        {error && <h1>{error}</h1>}
+      <div className=''>
+      {/* {error ? (
+        toast.error(error.message)
+      ) : (
+        <div className='grid lg:grid-cols-4 md:grid-cols-3 items-center justify-items-center'>
+          {data?.categories.map((category, i) => (
+            <NavLink to={`/meals/${category.strCategory}`} key={i}>
+              <Card image={category.strCategoryThumb} name={category.strCategory} save={false}/>
+            </NavLink>
+          ))}
+        </div>)} */}
+        {isLoading ? (
+              <LoadSkeleton />
+            ) : error ? (
+              toast.error(error.message)
+            ) : (
+              <div className='grid lg:grid-cols-4 md:grid-cols-3 items-center justify-items-center'>
+                {data?.categories.map((category, i) => (
+                  <NavLink to={`/meals/${category.strCategory}`} key={i}>
+                    <Card image={category.strCategoryThumb} name={category.strCategory} save={false}/>
+                  </NavLink>
+                ))}
+              </div>
+            )}
       </div>
     </>
   )
