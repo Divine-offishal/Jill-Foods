@@ -1,5 +1,5 @@
 import { IonIcon } from '@ionic/react';
-import { listSharp } from 'ionicons/icons';
+import { fastFoodSharp } from 'ionicons/icons';
 import React, {useEffect, useState} from 'react'
 import { NavLink } from 'react-router-dom';
 
@@ -24,15 +24,21 @@ const Navbar = () => {
       </NavLink>
 
       <div className='ml-auto text-2xl flex mr-4'>
-        <NavLink to='/'>
+        <NavLink to='/' className={({isActive}) => {
+          return isActive? 'text-green-700': ''
+        }}>
           <h1 className='mx-4'>Home</h1>
         </NavLink>
-        <NavLink to='/about'>
+        <NavLink to='/about' className={({isActive}) => {
+          return isActive? 'text-green-700': ''
+        }}>
           <h1 className='mx-4'>About</h1>
         </NavLink>
-        <NavLink to='/cart'>
+        <NavLink to='/cart' className={({isActive}) => {
+          return isActive? 'text-green-700': ''
+        }}>
           <div className='text-3xl mr-4'>
-            <IonIcon icon={listSharp}/>
+            <IonIcon icon={fastFoodSharp}/>
           </div>
         </NavLink>
       </div>

@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react'
 import {IonIcon} from '@ionic/react'
-import { listSharp, reorderThreeSharp } from 'ionicons/icons'
+import { fastFoodSharp, reorderThreeSharp } from 'ionicons/icons'
 import { closeSharp } from 'ionicons/icons'
 import { NavLink } from 'react-router-dom'
 
@@ -33,7 +33,7 @@ const MobileNav = () => {
         <span className='ml-auto flex mr-4'>
           <NavLink to='/cart'>
             <div className="text-3xl mr-2">
-              <IonIcon icon={listSharp}/>
+              <IonIcon icon={fastFoodSharp}/>
             </div>
           </NavLink>
           <div className='text-4xl ' onClick={()=> setOpen(!open)}>

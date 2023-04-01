@@ -29,16 +29,6 @@ const Meals = () => {
         </select>
       </div>
       <div className=''>
-      {/* {error ? (
-        toast.error(error.message)
-      ) : (
-        <div className='grid lg:grid-cols-4 md:grid-cols-3 items-center justify-items-center'>
-          {data?.categories.map((category, i) => (
-            <NavLink to={`/meals/${category.strCategory}`} key={i}>
-              <Card image={category.strCategoryThumb} name={category.strCategory} save={false}/>
-            </NavLink>
-          ))}
-        </div>)} */}
         {isLoading ? (
               <LoadSkeleton />
             ) : error ? (

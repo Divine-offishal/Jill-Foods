@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState , useEffect} from 'react'
 import './App.css'
 import Skeleton, {SkeletonTheme} from 'react-loading-skeleton'
 import Footer from './Components/Footer'
@@ -9,6 +9,10 @@ import Home from './Pages/Home'
 import AppRoutes from './Routes/AppRoutes'
 
 function App() {
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <div className=" bg-primary w-screen overflow-x-hidden">
