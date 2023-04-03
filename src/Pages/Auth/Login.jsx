@@ -2,9 +2,9 @@ import React from 'react'
 
 const Login = () => {
   return (
-    <div className='w-screen h-screen z-[99999]'>
-      <div className='w-10/12 h-auto border border-amber-900 text-amber-900 bg-primary grid justify-items-center'>
-        <h1>Login</h1>
+    <div className='w-screen h-screen '>
+      <div className='w-screen h-screen border border-amber-900 z-[99999] fixed top-0 right-0 text-amber-900 bg-primary grid justify-items-center'>
+        <h1 className='mt-10 section-header'>Login</h1>
 
         {/* Install zodd or formink for form validation */}
         <form>
