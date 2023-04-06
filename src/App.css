@@ -16,4 +16,8 @@
   .max-input {
     @apply text-amber-900 h-10 md:w-7/12 w-9/12 border border-amber-900 bg-primary pl-4
   }
+
+  .focus-state {
+    @apply focus:border-2 focus:border-green-700 focus:bg-primary focus:text-green-700
+  }
 }

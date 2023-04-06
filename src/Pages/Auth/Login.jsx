@@ -34,10 +34,10 @@ const Login = () => {
         <h1 className='mt-10 section-header'>Login</h1>
 
         {/* Install zodd or formink for form validation */}
-        <form onSubmit={handleSubmit}>
-          <input className='h-10 w-9/12' placeholder='Your email' type='email' onChange={(e) => setEmail(e.target.value)}></input>
-          <input className='h-10 w-9/12' placeholder='Your password' type='password' onChange={(e) => setPassword(e.target.value)}></input>
-          <button type='submit' className='h-8 w-auto text-primary bg-green-700'>Submit</button>
+        <form onSubmit={handleSubmit} className='grid justify-items-center w-10/12'>
+          <input className='h-10 max-input' placeholder='Your email' type='email' onChange={(e) => setEmail(e.target.value)}></input>
+          <input className='h-10 max-input' placeholder='Your password' type='password' onChange={(e) => setPassword(e.target.value)}></input>
+          <button type='submit' className='h-8 w-auto text-primary bg-green-700 px-2 focus-state'>Submit</button>
         </form>
       </div>
     </div>
