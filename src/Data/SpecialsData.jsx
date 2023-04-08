@@ -2,20 +2,24 @@ import Images from "../Images/images";
 
 const SpecialData = [
   {
-    image: Images.special1,
-    name: 'Spaghetti alla Carbonara'
+    strMealThumb: Images.special1,
+    strMeal: 'Spaghetti alla Carbonara',
+    idMeal: 1
   },
   {
-    image: Images.special2,
-    name: 'Chicken Afritada'
+    strMealThumb: Images.special2,
+    strMeal: 'Chicken Afritada',
+    idMeal: 2
   },
   {
-    image: Images.special3,
-    name: 'Cumin Lamb Noodles'
+    strMealThumb: Images.special3,
+    strMeal: 'Cumin Lamb Noodles',
+    idMeal: 3
   },
   {
-    image: Images.special4,
-    name: 'Melting Potatoes'
+    strMealThumb: Images.special4,
+    strMeal: 'Melting Potatoes',
+    idMeal: 4
   },
 ]
 

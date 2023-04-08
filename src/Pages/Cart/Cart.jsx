@@ -26,7 +26,7 @@ const Cart = () => {
 
 
         <span className='flex justify-center text-3xl font-semibold text-amber-900'>
-          <h1>Number of items</h1>
+          <h1>Number of items: {SavedArray.length}</h1>
         </span>
 
         <span className='flex justify-center my-10 text-2xl font-semibold'>

@@ -7,7 +7,7 @@ import toast, {Toaster} from 'react-hot-toast'
 
 const Meals = () => {
 
-  const fetcher = (...args) => fetch(...args).then(res => res.json())
+  const fetcher = (...args) => fetch(...args).then(res => res.json()).then(res => console.log(res))
   const { data, error, isLoading } = useSWR('https://themealdb.com/api/json/v1/1/categories.php', fetcher)
 
 
@@ -22,17 +22,13 @@ const Meals = () => {
           <input type="text" name="" className='border border-amber-900 focus:border-2 focus:border-amber-900 h-10 w-44 bg-primary  text-amber-900' placeholder='Search for a meal'/>
           <button className='h-10 w-auto p-2 text-primary bg-green-700 cursor-pointer focus:bg-primary focus:text-amber-900 focus:border-2 focus:border-green-700'>Search</button>
         </div>
-        <select className='bg-green-700 text-primary h-8 w-32 my-10'>
-          <option>Beef</option>
-          <option>Pizza</option>
-          <option>Chicken</option>
-        </select>
       </div>
       <div className=''>
         {isLoading ? (
               <LoadSkeleton />
             ) : error ? (
-              toast.error(error.message)
+              toast.error(error.message),
+              <h1 className='text-center text-amber-900 font-semibold text-xl mt-4'>Sorry cannot fetch meals</h1>
             ) : (
               <div className='grid lg:grid-cols-4 md:grid-cols-3 items-center justify-items-center'>
                 {data?.categories.map((category, i) => (

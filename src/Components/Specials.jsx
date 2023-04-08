@@ -10,7 +10,7 @@ const Specials = () => {
 
         {
           SpecialData.map((item, i) => (
-            <Card image={item.image} name={item.name} key={i} save={true}/>
+            <Card image={item.strMealThumb} name={item.strMeal} key={i} save={false}/>
           ))
         }
       </div>

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { toast, Toaster } from 'react-hot-toast'
 
 // Firebase imports 
@@ -19,6 +19,7 @@ import { validationSchema } from './utils/validationSchema'
 
 const Signin = () => {
   const navigate = useNavigate()
+  const authState = true
 
 
   // This function handles signIn with email and password
@@ -26,6 +27,7 @@ const Signin = () => {
     try {
       const { email, password } = values;
       await createUserWithEmailAndPassword(auth, email, password);
+      localStorage.setItem('authenticated', authState)
       toast.success('Logged in successfully!');
       navigate('/login')
     } catch (error) {
@@ -37,7 +39,7 @@ const Signin = () => {
     }
   }
 
-  
+
   // This function handles signin with google
   const handleClick = () => {
     return signInWithPopup(auth, provider)
@@ -45,9 +47,9 @@ const Signin = () => {
         const credential = GoogleAuthProvider.credentialFromResult(result);
         const token = credential.accessToken;
         const user = result.user;
-        console.log(user);
+        localStorage.setItem('authenticated', authState)
         toast.success('Logged in')
-        navigate('/');
+        navigate('/cart');
       })
       .catch((error) => {
         const errorCode = error.code;
@@ -95,7 +97,7 @@ const Signin = () => {
             Sign-in with Google</div>
         </span>
 
-        <span className='flex justify-center text-amber-900 text-4xl my-2'>
+        <span className='flex justify-center text-amber-900 text-xl my-2'>
           <h1>Already signed in? <NavLink to='/login'><h1 className='text-green-700'>Login</h1></NavLink></h1>
         </span>
       </div>

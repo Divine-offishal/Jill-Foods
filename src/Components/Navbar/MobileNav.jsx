@@ -2,11 +2,16 @@ import React, {useEffect, useState} from 'react'
 import {IonIcon} from '@ionic/react'
 import { fastFoodSharp, reorderThreeSharp } from 'ionicons/icons'
 import { closeSharp } from 'ionicons/icons'
-import { NavLink } from 'react-router-dom'
+import { NavLink, useNavigate } from 'react-router-dom'
+import { toast, Toaster } from 'react-hot-toast'
+import { signOut } from 'firebase/auth'
+import { auth } from '../../firebase'
 
 const MobileNav = () => {
 
   const [windowHeight, setWindowHeight] = useState(window.scrollY)
+  const authState = localStorage.getItem('authenticated')
+  const navigate = useNavigate()
 
   const [open, setOpen] = useState(false)
 
@@ -20,13 +25,28 @@ const MobileNav = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const handleClick = () => {
-    console.log(windowHeight);
+  const handleLogout = () => {
+
+    if (authState) {
+      localStorage.removeItem('authenticated')
+      signOut(auth).then(() => {
+        toast.success('Logged out')
+        // Sign-out successful
+      }).catch((error) => {
+        toast.error(error)
+        // An error happened.
+      });
+      
+    } else {
+      navigate('/signup')
+    }
+
   }
 
   return (
     <>
-      <div onClick={handleClick} className={` transition-all duration-300 ease-in-out h-20 w-screen flex md:hidden text-primary pt-4 fixed top-0 left-0 z-50 ${windowHeight > 0? 'bg-amber-900': ' bg-amber-900/0 text-shadow' }`}>
+      <div className={` transition-all duration-300 ease-in-out h-20 w-screen flex md:hidden text-primary pt-4 fixed top-0 left-0 z-50 ${windowHeight > 0? 'bg-amber-900': ' bg-amber-900/0 text-shadow' }`}>
+        <Toaster/>
         <NavLink to='/'>
           <h1 className='text-4xl ml-4 font-bold'>Jill's Kitchen</h1>
         </NavLink>
@@ -50,6 +70,7 @@ const MobileNav = () => {
         <NavLink to='/about' onClick={()=> setOpen(!open)}>
           <h1 className=' my-4'>About</h1>
         </NavLink>
+        <h1 className=' my-4' onClick={handleLogout}>{authState? 'Logout': 'Login'}</h1>
       </div>
     </>
   )

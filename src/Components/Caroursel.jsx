@@ -49,10 +49,7 @@ const Caroursel = () => {
           </div>
         </div>
 
-        {/* translate-x-[-${index}00vw] */}
-
-      {/* Carousel Body */}
-      <div className={`flex translate-x-${index}00% relative transition-all duration-300 ease-in-out`}>
+      <div className={`${index == 0 ? 'turn-1': 'turn-2'}`}>
         {
           CarouselData.map((item, i) => (
             <div className='w-screen h-96 shrink-0 relative' key={i}>
