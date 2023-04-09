@@ -1,28 +1,43 @@
-import React from 'react'
-import {Routes, Route} from 'react-router-dom'
-import Home from '../Pages/Home'
-import About from '../Pages/About'
-import Cart from '../Pages/Cart/Cart'
-import MealsPage from '../Pages/MealsPage'
-import TeamPage from '../Pages/TeamPage'
-import Login from '../Pages/Auth/Login'
-import Signin from '../Pages/Auth/SignUp'
-import ProtectedRoute from './ProtectedRoute'
+import React, { lazy, Suspense } from 'react';
+import { Routes, Route } from 'react-router-dom';
+import ProtectedRoute from './ProtectedRoute';
+
+const Home = lazy(() => import('../Pages/Home'));
+const About = lazy(() => import('../Pages/About'));
+const Cart = lazy(() => import('../Pages/Cart/Cart'));
+const MealsPage = lazy(() => import('../Pages/MealsPage'));
+const TeamPage = lazy(() => import('../Pages/TeamPage'));
+const Login = lazy(() => import('../Pages/Auth/Login'));
+const Signup = lazy(() => import('../Pages/Auth/Signup'));
 
 const AppRoutes = () => {
   return (
     <Routes>
-      <Route path='/' element={<Home/>}/>
-      <Route path='/about' element={<About/>}/>
-      <Route element={<ProtectedRoute/>}>
-        <Route path='/cart' element={<Cart/>}/>
+      <Route path="/" element={<Suspense fallback={<div>Loading...</div>}>
+        <Home />
+      </Suspense>} />
+      <Route path="/about" element={<Suspense fallback={<div>Loading...</div>}>
+        <About />
+      </Suspense>} />
+      <Route element={<ProtectedRoute />}>
+        <Route path="/cart" element={<Suspense fallback={<div className='text-center text-3xl text-green-700 animate-pulse h-screen w-screen'>Loading...</div>}>
+          <Cart />
+        </Suspense>} />
       </Route>
-      <Route path='/signup' element={<Signin/>}/>
-      <Route path='/login' element={<Login/>}/>
-      <Route path='/meals/:name' element={<MealsPage/>}/>
-      <Route path='/profile/:name' element={<TeamPage/>}/>
+      <Route path="/signup" element={<Suspense fallback={<div className='text-center text-3xl text-green-700 animate-pulse h-screen w-screen'>Loading...</div>}>
+        <Signup />
+      </Suspense>} />
+      <Route path="/login" element={<Suspense fallback={<div className='text-center text-3xl text-green-700 animate-pulse h-screen w-screen'>Loading...</div>}>
+        <Login />
+      </Suspense>} />
+      <Route path="/meals/:name" element={<Suspense fallback={<div className='text-center text-3xl text-green-700 animate-pulse h-screen w-screen'>Loading...</div>}>
+        <MealsPage />
+      </Suspense>} />
+      <Route path="/profile/:name" element={<Suspense fallback={<div className='text-center text-3xl text-green-700 animate-pulse h-screen w-screen'>Loading...</div>}>
+        <TeamPage />
+      </Suspense>} />
     </Routes>
-  )
-}
+  );
+};
 
-export default AppRoutes
+export default AppRoutes;

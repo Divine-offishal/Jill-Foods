@@ -14,7 +14,7 @@ const Cart = () => {
   return (
     <PageTransition>
       <div className=' w-screen min-h-screen pt-10'>
-        <h1 className='text-amber-900 text-center text-4xl font-bold'>Saved Items</h1>
+        <h1 className='text-amber-900 text-center text-4xl font-bold mt-10'>Saved Items</h1>
 
         {SavedArray.length > 0 ? <div className='my-20'>
           {

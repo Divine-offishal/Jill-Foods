@@ -6,14 +6,22 @@ import { listSharp } from 'ionicons/icons'
 import { useSelector, useDispatch} from 'react-redux'
 import { saved } from '../Features/Reducers'
 import { toast, Toaster } from 'react-hot-toast'
+import { useNavigate } from 'react-router-dom'
 
 const Card = ({image, name, save, payload}) => {
 
   const dispatch = useDispatch()
+  const authState = localStorage.getItem('authenticated')
+  const navigate = useNavigate()
 
   const handleClick = (payload) => {
-    dispatch(saved(payload))
-    toast.success('Meal saved')
+    if (authState) {
+      dispatch(saved(payload))
+      toast.success('Meal saved')
+      
+    } else {
+      navigate('/signup')
+    }
   }
 
   return (

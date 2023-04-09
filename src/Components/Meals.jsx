@@ -7,7 +7,7 @@ import toast, {Toaster} from 'react-hot-toast'
 
 const Meals = () => {
 
-  const fetcher = (...args) => fetch(...args).then(res => res.json()).then(res => console.log(res))
+  const fetcher = (...args) => fetch(...args).then(res => res.json())
   const { data, error, isLoading } = useSWR('https://themealdb.com/api/json/v1/1/categories.php', fetcher)
 
 

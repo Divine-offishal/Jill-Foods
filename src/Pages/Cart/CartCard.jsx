@@ -25,7 +25,7 @@ const CartCard = ({image, name, id}) => {
       <div className='w-10/12 border border-amber-900 flex'>
         <img src={image} alt="" className=' md:w-52 md:h-52 w-32 h-32'/>
         <span className='md:ml-20 ml-2 md:mt-10 mt-2'>
-          <h1 className='text-3xl font-semibold '>{name}</h1>
+          <h1 className='text-3xl font-semibold '>{name.substring(0, 12)}...</h1>
 
 
           <div className='flex mt-4 text-2xl'>

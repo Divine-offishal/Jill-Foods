@@ -18,7 +18,6 @@ function App() {
     <div className=" bg-primary w-screen overflow-x-hidden">
       <Navbar/>
       <MobileNav/>
-      {/* <Home/> */}
       <SkeletonTheme baseColor='#78350F' highlightColor='#a76731'>
         <AppRoutes/>
       </SkeletonTheme>
