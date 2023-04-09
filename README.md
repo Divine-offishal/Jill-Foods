@@ -1,4 +1,4 @@
-# Jill-Foods
+# Jill's Kitchen
 
 A react website bundled with vite. 
 
