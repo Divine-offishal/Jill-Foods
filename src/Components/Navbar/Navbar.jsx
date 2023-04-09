@@ -5,12 +5,14 @@ import { toast, Toaster } from 'react-hot-toast';
 import { NavLink, useNavigate } from 'react-router-dom';
 import { signOut } from 'firebase/auth';
 import { auth } from '../../firebase';
+import { useSelector } from 'react-redux';
 
 const Navbar = () => {
 
   const [windowHeight, setWindowHeight] = useState(window.scrollY)
   const authState = localStorage.getItem('authenticated')
   const navigate = useNavigate()
+  const savedArray = useSelector((state) => state.saveItem.saveContainer)
 
   useEffect(() => {
     const handleScroll = () => {
@@ -61,7 +63,12 @@ const Navbar = () => {
         <NavLink to='/cart' className={({isActive}) => {
           return isActive? 'text-green-700': ''
         }}>
-          <div className='text-3xl mr-4'>
+          <div className='text-3xl mr-4 relative'>
+              <div className='absolute top-0 right-0 bg-green-700 h-4 w-4 rounded-full z-20 text-sm'>
+                <h1 className='text-sm ml-1'>
+                  {savedArray.length}
+                </h1>
+              </div>
             <IonIcon icon={fastFoodSharp}/>
           </div>
         </NavLink>

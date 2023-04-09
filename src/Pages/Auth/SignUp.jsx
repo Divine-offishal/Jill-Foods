@@ -8,7 +8,7 @@ import { NavLink, useNavigate } from 'react-router-dom'
 
 // IonIcon imports
 import { IonIcon } from '@ionic/react'
-import { logoGoogle } from 'ionicons/icons'
+import { logoGoogle, arrowBackCircleSharp } from 'ionicons/icons'
 
 // formik imports
 import { Formik, Form, Field, ErrorMessage} from 'formik'
@@ -63,6 +63,13 @@ const Signin = () => {
     <div className='w-screen h-screen '>
       <div className='w-screen h-screen z-[99999] fixed top-0 border border-amber-900 text-amber-900 bg-primary grid justify-items-center'>
         <Toaster/>
+
+        <NavLink to='/'>
+          <span className=" fixed left-10 top-10 text-5xl text-green-700">
+            <IonIcon icon={arrowBackCircleSharp}/>
+          </span>
+        </NavLink>
+
         <h1 className='mt-10 section-header'>Sign Up</h1>
 
         {/* Install zodd or formink for form validation */}

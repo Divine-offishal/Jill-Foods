@@ -15,7 +15,7 @@ function App() {
   }, []);
 
   return (
-    <div className=" bg-primary w-screen overflow-x-hidden">
+    <div className=" bg-primary min-h-screen w-screen overflow-x-hidden">
       <Navbar/>
       <MobileNav/>
       <SkeletonTheme baseColor='#78350F' highlightColor='#a76731'>

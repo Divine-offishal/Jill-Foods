@@ -1,11 +1,14 @@
 import React, { useState } from 'react'
 import {auth} from '../../firebase'
 import { signInWithEmailAndPassword } from 'firebase/auth'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, NavLink } from 'react-router-dom'
 import { toast, Toaster } from 'react-hot-toast'
 
 import { Formik, Form, Field, ErrorMessage} from 'formik'
 import { validationSchema } from './utils/validationSchema'
+
+import { IonIcon } from '@ionic/react'
+import { arrowBackCircleSharp } from 'ionicons/icons'
 
 const Login = () => {
 
@@ -30,14 +33,14 @@ const Login = () => {
     <div className='w-screen h-screen '>
       <div className='w-screen h-screen border border-amber-900 z-[99999] fixed top-0 right-0 text-amber-900 bg-primary grid justify-items-center'>
         <Toaster/>
-        <h1 className='mt-10 section-header'>Login</h1>
 
-        {/* Install zodd or formink for form validation */}
-        {/* <form onSubmit={handleSubmit} className='grid justify-items-center w-10/12'>
-          <input className='h-10 max-input' placeholder='Your email' type='email' onChange={(e) => setEmail(e.target.value)}></input>
-          <input className='h-10 max-input' placeholder='Your password' type='password' onChange={(e) => setPassword(e.target.value)}></input>
-          <button type='submit' className='h-8 w-auto text-primary bg-green-700 px-2 focus-state'>Submit</button>
-        </form> */}
+        <NavLink to='/'>
+          <span className="fixed left-10 top-10 text-5xl text-green-700">
+            <IonIcon icon={arrowBackCircleSharp}/>
+          </span>
+        </NavLink>
+
+        <h1 className='mt-2 section-header'>Login</h1>
 
         <Formik 
             initialValues={{ email: '', password: '' }}

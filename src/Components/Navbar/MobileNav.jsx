@@ -6,12 +6,14 @@ import { NavLink, useNavigate } from 'react-router-dom'
 import { toast, Toaster } from 'react-hot-toast'
 import { signOut } from 'firebase/auth'
 import { auth } from '../../firebase'
+import { useSelector } from 'react-redux'
 
 const MobileNav = () => {
 
   const [windowHeight, setWindowHeight] = useState(window.scrollY)
   const authState = localStorage.getItem('authenticated')
   const navigate = useNavigate()
+  const savedArray = useSelector((state) => state.saveItem.saveContainer)
 
   const [open, setOpen] = useState(false)
 
@@ -52,7 +54,12 @@ const MobileNav = () => {
         </NavLink>
         <span className='ml-auto flex mr-4'>
           <NavLink to='/cart'>
-            <div className="text-3xl mr-2">
+            <div className="text-3xl mr-2 relative">
+            <div className='absolute top-0 right-0 bg-green-700 h-4 w-4 rounded-full z-20 text-sm'>
+                <h1 className='text-sm ml-1'>
+                  {savedArray.length}
+                </h1>
+              </div>
               <IonIcon icon={fastFoodSharp}/>
             </div>
           </NavLink>
